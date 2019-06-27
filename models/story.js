@@ -11,8 +11,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN
     },
     owner: {
+      type: DataTypes.INTEGER
+    },
+    ownerName: {
       type: DataTypes.STRING
-    }
+    }, 
+    kanji:{
+      type:DataTypes.STRING
+    },
   })
   return Story;
 }

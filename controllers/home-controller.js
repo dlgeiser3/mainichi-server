@@ -7,7 +7,7 @@ let sequelize = require('../db');
 let validateSession = require('../middleware/validate-session');
 
 var Story = sequelize.import('../models/story');
-
+// Story.sync({force:true})
 
 /* *************************
  *** POST CREATE ***
@@ -20,7 +20,9 @@ router.post('/', validateSession, (req, res) => {
     text: req.body.story.text,
     likes: req.body.story.likes,
     studied: req.body.story.studied,
-    owner: req.user.username
+    owner: req.user.id, 
+    ownerName: req.user.username,
+    kanji:req.body.story.kanji
   }
   Story.create(storyRequest)
     .then(story => res.status(200).json(story))
