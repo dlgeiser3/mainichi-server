@@ -9,7 +9,7 @@ let sequelize = require('./db');
 let bodyParser = require('body-parser');
 
 
-sequelize.sync({force : true});
+sequelize.sync();
 
 app.use(bodyParser.json());
 
